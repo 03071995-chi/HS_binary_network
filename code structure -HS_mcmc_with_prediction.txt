@@ -1,0 +1,11 @@
+code structure: HS_mcmc_with_prediction 
+
+1. we simulated true theta and from true theta we simulate data.
+
+2. Split the data into training and test data. Just as the data, we also have training timepoints and test timepoints (for example, for the current code training and test timepoints are 20 and 5 resp.)
+
+3. Based on training data we predict theta through hs_mcmc algorithm. Accordingly from the predicted thetas we predict Y's for each test timepoints.
+
+4. Now we have actual Y's i.e test data (from step 2) and predicted Y's for each test timepoints. That is, for each timepoint we have predicted Network and actual data network.
+
+5. We plot the roc curves for all the test timepoints. Also plotted auc values over all the test timepoints.
