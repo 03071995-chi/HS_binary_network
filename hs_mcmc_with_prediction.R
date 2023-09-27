@@ -59,15 +59,15 @@ simulate_data <- function(n,T,R){
       if(i!=j){
         for(r in 1:(R-1)){
           for(t in 1:T){   
-            c  = (1+exp(theta_true[i,j,t,1])+exp(theta_true[i,j,t,2])+(exp(theta_true[i,j,t,1])+(exp(theta_true[i,j,t,2]))+(exp(theta_true[i,j,t,3]))))
+            c = 1 + exp(theta_true[i,j,t,1]) + exp(theta_true[i,j,t,2]) + exp(theta_true[i,j,t,1]+theta_true[i,j,t,2]+theta_true[i,j,t,3])
             p1 = 1/c
             p2 = exp(theta_true[i,j,t,1])/c
             p3 = exp(theta_true[i,j,t,2])/c
             p4 = 1-(p1+p2+p3)
             
             #generate a uniform(0,1)
-            
             u = runif(1,0,1)
+            # based on u assign 0/1 to y_ij and y_ji
             if(u<=p1){
               y[i,j,t,r] = 0
               y[j,i,t,r] = 0
