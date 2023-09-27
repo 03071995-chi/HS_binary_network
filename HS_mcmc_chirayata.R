@@ -50,7 +50,7 @@ simulate_data <- function(n,T,R){
       if(i!=j){
         for(r in 1:(R-1)){
           for(t in 1:T){
-            c  = (1+exp(theta_true[i,j,t,1])+exp(theta_true[i,j,t,2])+(exp(theta_true[i,j,t,1])+(exp(theta_true[i,j,t,2]))+(exp(theta_true[i,j,t,3]))))
+            c = 1 + exp(theta_true[i,j,t,1]) + exp(theta_true[i,j,t,2]) + exp(theta_true[i,j,t,1]+theta_true[i,j,t,2]+theta_true[i,j,t,3])
             p1 = 1/c
             p2 = exp(theta_true[i,j,t,1])/c
             p3 = exp(theta_true[i,j,t,2])/c
